@@ -1,0 +1,15 @@
+{
+  "name": "keycase-darwin-universal",
+  "version": "0.0.0",
+  "os": [
+    "darwin"
+  ],
+  "main": "keycase.darwin-universal.node",
+  "files": [
+    "keycase.darwin-universal.node"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">= 10"
+  }
+}
