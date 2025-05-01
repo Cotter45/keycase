@@ -1,6 +1,6 @@
 {
   "name": "@cotter45/keycase-linux-riscv64-gnu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "os": [
     "linux"
   ],
