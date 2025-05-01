@@ -1,3 +1,3 @@
-# `keycase-android-arm-eabi`
+# `@cotter45/keycase-android-arm-eabi`
 
-This is the **armv7-linux-androideabi** binary for `keycase`
+This is the **armv7-linux-androideabi** binary for `@cotter45/keycase`

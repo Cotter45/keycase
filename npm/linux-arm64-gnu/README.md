@@ -1,3 +1,3 @@
-# `keycase-linux-arm64-gnu`
+# `@cotter45/keycase-linux-arm64-gnu`
 
-This is the **aarch64-unknown-linux-gnu** binary for `keycase`
+This is the **aarch64-unknown-linux-gnu** binary for `@cotter45/keycase`

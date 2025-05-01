@@ -1,5 +1,5 @@
 {
-  "name": "keycase-darwin-universal",
+  "name": "@cotter45/keycase-darwin-universal",
   "version": "1.0.0",
   "os": [
     "darwin"
@@ -8,8 +8,10 @@
   "files": [
     "keycase.darwin-universal.node"
   ],
+  "description": "A rust based transformer for arrays and objects in JS",
   "license": "MIT",
   "engines": {
     "node": ">= 10"
-  }
+  },
+  "repository": "https://github.com/Cotter45/keycase"
 }

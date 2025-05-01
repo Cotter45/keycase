@@ -1,3 +1,3 @@
-# `keycase-linux-x64-musl`
+# `@cotter45/keycase-linux-x64-musl`
 
-This is the **x86_64-unknown-linux-musl** binary for `keycase`
+This is the **x86_64-unknown-linux-musl** binary for `@cotter45/keycase`

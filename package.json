@@ -1,5 +1,5 @@
 {
-  "name": "keycase",
+  "name": "@cotter45/keycase",
   "version": "1.0.0",
   "main": "index.js",
   "types": "index.d.ts",
@@ -43,5 +43,7 @@
     "universal": "napi universal",
     "version": "napi version"
   },
-  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610",
+  "repository": "https://github.com/Cotter45/keycase",
+  "description": "A rust based transformer for arrays and objects in JS"
 }

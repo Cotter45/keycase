@@ -1,5 +1,5 @@
 {
-  "name": "keycase-win32-ia32-msvc",
+  "name": "@cotter45/keycase-win32-ia32-msvc",
   "version": "1.0.0",
   "os": [
     "win32"
@@ -11,8 +11,10 @@
   "files": [
     "keycase.win32-ia32-msvc.node"
   ],
+  "description": "A rust based transformer for arrays and objects in JS",
   "license": "MIT",
   "engines": {
     "node": ">= 10"
-  }
+  },
+  "repository": "https://github.com/Cotter45/keycase"
 }
