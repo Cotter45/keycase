@@ -369,13 +369,21 @@ jobs:
         run: ls -R ./npm
         shell: bash
       - name: Configure npm auth
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        run: |
+          # point npm at the npmjs registry
+          npm config set registry https://registry.npmjs.org/
+          # write your token into the npm rc
+          npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Configure Yarn to use npm registry
         run: |
           yarn config set registry https://registry.npmjs.org/
           yarn config set "//registry.npmjs.org/:_authToken" "${{ secrets.NPM_TOKEN }}"
       - name: Publish native packages
-        run: yarn prepublishOnly
+        run: npm run prepublishOnly
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish
         run: |
           npm config set provenance true
