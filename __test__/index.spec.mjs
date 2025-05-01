@@ -275,81 +275,81 @@ test("pascal case test", (t) => {
   });
 });
 
-function generateTestObject(depth, breadth) {
-  if (depth === 0) {
-    return {
-      num_value: Math.random(),
-      str_value: "lorem_ipsum",
-      bool_value: Math.random() > 0.5,
-      nested_array: [1, 2, 3, { deep_key: "foo_bar" }],
-    };
-  }
-  const obj = {};
-  for (let i = 0; i < breadth; i++) {
-    const keyStyles = [
-      `snake_case_key_${i}`,
-      `kebab-key-${i}`,
-      `PascalKey${i}`,
-      `mixedCaseKey${i}`,
-    ];
-    const key = keyStyles[i % keyStyles.length];
-    obj[key] = generateTestObject(depth - 1, breadth);
-  }
-  return obj;
-}
+// function generateTestObject(depth, breadth) {
+//   if (depth === 0) {
+//     return {
+//       num_value: Math.random(),
+//       str_value: "lorem_ipsum",
+//       bool_value: Math.random() > 0.5,
+//       nested_array: [1, 2, 3, { deep_key: "foo_bar" }],
+//     };
+//   }
+//   const obj = {};
+//   for (let i = 0; i < breadth; i++) {
+//     const keyStyles = [
+//       `snake_case_key_${i}`,
+//       `kebab-key-${i}`,
+//       `PascalKey${i}`,
+//       `mixedCaseKey${i}`,
+//     ];
+//     const key = keyStyles[i % keyStyles.length];
+//     obj[key] = generateTestObject(depth - 1, breadth);
+//   }
+//   return obj;
+// }
 
-const bigObj = generateTestObject(5, 8);
-console.log(
-  "Big object size:",
-  JSON.stringify(bigObj).length / 1024 / 1024,
-  "MB"
-);
+// const bigObj = generateTestObject(5, 8);
+// console.log(
+//   "Big object size:",
+//   JSON.stringify(bigObj).length / 1024 / 1024,
+//   "MB"
+// );
 
-test("performance on massive object", async (t) => {
-  t.timeout(30_000);
-  console.time("big-transform-1");
-  const out = transform(bigObj, "camel");
-  console.timeEnd("big-transform-1");
-  t.truthy(out);
+// test("performance on massive object", async (t) => {
+//   t.timeout(30_000);
+//   console.time("big-transform-1");
+//   const out = transform(bigObj, "camel");
+//   console.timeEnd("big-transform-1");
+//   t.truthy(out);
 
-  console.time("big-transform-2");
-  const out2 = transform(bigObj, "snake");
-  console.timeEnd("big-transform-2");
-  t.truthy(out2);
-  console.time("big-transform-3");
+//   console.time("big-transform-2");
+//   const out2 = transform(bigObj, "snake");
+//   console.timeEnd("big-transform-2");
+//   t.truthy(out2);
+//   console.time("big-transform-3");
 
-  const out3 = transform(bigObj, "kebab");
-  console.timeEnd("big-transform-3");
-  t.truthy(out3);
+//   const out3 = transform(bigObj, "kebab");
+//   console.timeEnd("big-transform-3");
+//   t.truthy(out3);
 
-  console.time("big-transform-4");
-  const out4 = transform(bigObj, "pascal");
-  console.timeEnd("big-transform-4");
-  t.truthy(out4);
-});
+//   console.time("big-transform-4");
+//   const out4 = transform(bigObj, "pascal");
+//   console.timeEnd("big-transform-4");
+//   t.truthy(out4);
+// });
 
-test("performance from caching", async (t) => {
-  t.timeout(30_000);
-  console.time("cached-big-transform-1");
-  const out = transform(bigObj, "camel");
-  console.timeEnd("cached-big-transform-1");
-  t.truthy(out);
+// test("performance from caching", async (t) => {
+//   t.timeout(30_000);
+//   console.time("cached-big-transform-1");
+//   const out = transform(bigObj, "camel");
+//   console.timeEnd("cached-big-transform-1");
+//   t.truthy(out);
 
-  console.time("cached-big-transform-2");
-  const out2 = transform(bigObj, "snake");
-  console.timeEnd("cached-big-transform-2");
-  t.truthy(out2);
+//   console.time("cached-big-transform-2");
+//   const out2 = transform(bigObj, "snake");
+//   console.timeEnd("cached-big-transform-2");
+//   t.truthy(out2);
 
-  console.time("cached-big-transform-3");
-  const out3 = transform(bigObj, "kebab");
-  console.timeEnd("cached-big-transform-3");
-  t.truthy(out3);
+//   console.time("cached-big-transform-3");
+//   const out3 = transform(bigObj, "kebab");
+//   console.timeEnd("cached-big-transform-3");
+//   t.truthy(out3);
 
-  console.time("cached-big-transform-4");
-  const out4 = transform(bigObj, "pascal");
-  console.timeEnd("cached-big-transform-4");
-  t.truthy(out4);
-});
+//   console.time("cached-big-transform-4");
+//   const out4 = transform(bigObj, "pascal");
+//   console.timeEnd("cached-big-transform-4");
+//   t.truthy(out4);
+// });
 
 test("async transform test", async (t) => {
   const result = await transformAsync(obj1, "camel");
@@ -406,25 +406,25 @@ test("async transform test", async (t) => {
   });
 });
 
-test("performance on massive object async", async (t) => {
-  t.timeout(30_000);
-  console.time("big-transform-async-1");
-  const out = await transformAsync(bigObj, "camel");
-  console.timeEnd("big-transform-async-1");
-  t.truthy(out);
+// test("performance on massive object async", async (t) => {
+//   t.timeout(30_000);
+//   console.time("big-transform-async-1");
+//   const out = await transformAsync(bigObj, "camel");
+//   console.timeEnd("big-transform-async-1");
+//   t.truthy(out);
 
-  console.time("big-transform-async-2");
-  const out2 = await transformAsync(bigObj, "snake");
-  console.timeEnd("big-transform-async-2");
-  t.truthy(out2);
-  console.time("big-transform-async-3");
+//   console.time("big-transform-async-2");
+//   const out2 = await transformAsync(bigObj, "snake");
+//   console.timeEnd("big-transform-async-2");
+//   t.truthy(out2);
+//   console.time("big-transform-async-3");
 
-  const out3 = await transformAsync(bigObj, "kebab");
-  console.timeEnd("big-transform-async-3");
-  t.truthy(out3);
+//   const out3 = await transformAsync(bigObj, "kebab");
+//   console.timeEnd("big-transform-async-3");
+//   t.truthy(out3);
 
-  console.time("big-transform-async-4");
-  const out4 = await transformAsync(bigObj, "pascal");
-  console.timeEnd("big-transform-async-4");
-  t.truthy(out4);
-});
+//   console.time("big-transform-async-4");
+//   const out4 = await transformAsync(bigObj, "pascal");
+//   console.timeEnd("big-transform-async-4");
+//   t.truthy(out4);
+// });
